@@ -15,6 +15,7 @@ set clipboard=unnamed
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Prevent incorrect backgroung rendering
 let &t_ut=''
+
 " # Setup
 syntax on
 set number
@@ -26,37 +27,66 @@ set cursorline
 " === General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
+map s <nop>
+map S :w<CR>
+map Q :q<CR>
+map R :source $MYVIMRC<CR>
+
+" prevent auto wrapping
 set wrap
+set tw=0
 set showcmd
 set wildmenu
 
+" search
 set hlsearch
 exec "nohlsearch"
 set incsearch
 set ignorecase
 set smartcase
-
 noremap <LEADER><CR> :nohlsearch<CR>
+noremap = nzz
+noremap - Nzz
 
-" Insert
+" insert
 noremap h i
 noremap H I
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" === Cursor Movement
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " remap cursor
 noremap i k
 noremap k j
 noremap j h
-
+" move faster
 noremap I 5k 
 noremap K 5j
 
-map s <nop>
-map S :w<CR>
-map Q :q<CR>
-map R :source $MYVIMRC<CR>
+" split windows
+map si :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+map se :set splitbelow<CR>:split<CR>
+map sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+map si :set splitright<CR>:vsplit<CR>
+
+" move around windows
+map <LEADER>w <C-w>w
+map <LEADER>i <C-w>k
+map <LEADER>k <C-w>j
+map <LEADER>j <C-w>h
+map <LEADER>l <C-w>l
+
+" Resize splits with arrow keys
+map <up> :res +5<CR>
+map <down> :res -5<CR>
+map <left> :vertical resize-5<CR>
+map <right> :vertical resize+5<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" === Cursor Movement
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" change cursor shape
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 call plug#begin('~/.vim/plugged')
 
@@ -68,8 +98,5 @@ call plug#end()
 color snazzy
 let g:SnazzyTransparent = 1
 
-let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 hi clear CursorLine
 hi CursorLine gui=underline cterm=underline
