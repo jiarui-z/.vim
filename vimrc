@@ -62,9 +62,9 @@ noremap K 5j
 
 " split windows
 map si :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-map se :set splitbelow<CR>:split<CR>
-map sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-map si :set splitright<CR>:vsplit<CR>
+map sk :set splitbelow<CR>:split<CR>
+map sj :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+map sl :set splitright<CR>:vsplit<CR>
 
 " move around windows
 map <LEADER>w <C-w>w
