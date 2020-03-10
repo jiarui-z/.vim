@@ -13,10 +13,18 @@ set clipboard=unnamed
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tab
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set list
+set listchars=tab:▸\ ,trail:▫
+set scrolloff=5
+
 " Prevent incorrect backgroung rendering
 let &t_ut=''
 
-" # Setup
+" Setup
 syntax on
 set number
 set relativenumber
@@ -52,12 +60,15 @@ noremap - Nzz
 noremap h i
 noremap H I
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" === Cursor Movement
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " remap cursor
 noremap i k
 noremap k j
 noremap j h
 " move faster
-noremap I 5k 
+noremap I 5k
 noremap K 5j
 
 " split windows
@@ -79,17 +90,13 @@ map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" === Cursor Movement
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " change cursor shape
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 call plug#begin('~/.vim/plugged')
-
+" ui
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
 
@@ -97,6 +104,3 @@ call plug#end()
 
 color snazzy
 let g:SnazzyTransparent = 1
-
-hi clear CursorLine
-hi CursorLine gui=underline cterm=underline
