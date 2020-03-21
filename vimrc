@@ -13,20 +13,21 @@ set clipboard=unnamed
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tab
+" tab
+set expandtab
 set tabstop=2
 set shiftwidth=2
+
 set list
 set listchars=tab:▸\ ,trail:▫
-set scrolloff=5
 
-" Backspace
+" backspace
 set backspace=indent,eol,start
 
-" Prevent incorrect backgroung rendering
+" prevent incorrect backgroung rendering
 let &t_ut=''
 
-" Setup
+" setup
 syntax on
 set number
 set relativenumber
@@ -73,6 +74,8 @@ noremap j h
 " move faster
 noremap I 5k
 noremap K 5j
+
+set scrolloff=5
 
 " split windows
 map si :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
