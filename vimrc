@@ -20,6 +20,9 @@ set list
 set listchars=tab:▸\ ,trail:▫
 set scrolloff=5
 
+" Backspace
+set backspace=indent,eol,start
+
 " Prevent incorrect backgroung rendering
 let &t_ut=''
 
@@ -42,6 +45,7 @@ map R :source $MYVIMRC<CR>
 " prevent auto wrapping
 set wrap
 set tw=0
+
 set showcmd
 set wildmenu
 
@@ -95,11 +99,17 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 call plug#begin('~/.vim/plugged')
+" File navigation
+Plug 'preservim/nerdtree'
+
 " ui
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
 
 call plug#end()
+
+" NERDTree
+map tt :NERDTreeToggle<CR>
 
 color snazzy
 let g:SnazzyTransparent = 1
