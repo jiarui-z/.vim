@@ -87,11 +87,23 @@ map <LEADER>k <C-w>j
 map <LEADER>j <C-w>h
 map <LEADER>l <C-w>l
 
-" Resize splits with arrow keys
+" resize splits with arrow keys
 map <up> :res +5<CR>
 map <down> :res -5<CR>
 map <left> :vertical resize-5<CR>
 map <right> :vertical resize+5<CR>
+
+" change to vertical split
+noremap sh <C-w>t<C-w>K
+" change to horizontal split
+noremap sv <C-w>t<C-w>H
+
+" Tab management
+noremap tu :tabe<CR>
+noremap tj :-tabnext<CR>
+noremap tl :tabnext<CR>
+noremap tmj :-tabmove<CR>
+noremap tml :+tabmove<CR>
 
 " change cursor shape
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
