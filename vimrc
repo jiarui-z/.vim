@@ -14,12 +14,12 @@ set clipboard=unnamed
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tab
-set expandtab
+set noexpandtab
 set tabstop=2
 set shiftwidth=2
 
 set list
-set listchars=tab:▸\ ,trail:▫
+set listchars=tab:\|\ ,trail:▫
 
 " backspace
 set backspace=indent,eol,start
