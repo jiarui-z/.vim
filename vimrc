@@ -33,6 +33,7 @@ set number
 set relativenumber
 set ruler
 set cursorline
+set linebreak
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " === General
@@ -63,6 +64,7 @@ noremap - Nzz
 " insert
 noremap h i
 noremap H I
+inoremap <C-a> <ESC>A
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " === Cursor Movement
@@ -71,6 +73,9 @@ noremap H I
 noremap i k
 noremap k j
 noremap j h
+
+noremap W b
+
 " move faster
 noremap I 5k
 noremap K 5j
