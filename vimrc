@@ -39,6 +39,8 @@ set linebreak
 " === General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
+noremap ; :
+
 map s <nop>
 map S :w<CR>
 map Q :q<CR>
@@ -73,6 +75,8 @@ inoremap <C-a> <ESC>A
 noremap i k
 noremap k j
 noremap j h
+noremap gi gk
+noremap gk gj
 
 noremap W b
 
