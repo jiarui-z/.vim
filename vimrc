@@ -66,7 +66,7 @@ noremap - Nzz
 " insert
 noremap h i
 noremap H I
-inoremap <C-a> <ESC>A
+inoremap <C-l> <ESC>A
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " === Cursor Movement
@@ -129,6 +129,9 @@ Plug 'preservim/nerdtree'
 " ui
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
+
+" auto
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
