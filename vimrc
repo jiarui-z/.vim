@@ -14,7 +14,7 @@ set clipboard=unnamed
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tab
-set noexpandtab
+set expandtab
 set tabstop=2
 set shiftwidth=2
 
@@ -67,6 +67,9 @@ noremap - Nzz
 noremap h i
 noremap H I
 inoremap <C-l> <ESC>A
+
+set updatetime=1000
+set signcolumn=yes
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " === Cursor Movement
@@ -124,19 +127,45 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 call plug#begin('~/.vim/plugged')
 " File navigation
-Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Plug 'preservim/nerdtree'
+
+" auto
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" git
+Plug 'airblade/vim-gitgutter'
 
 " ui
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
 
-" auto
+" util
+Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
-" NERDTree
-map tt :NERDTreeToggle<CR>
+" fzf
+noremap <C-p> :Files<CR>
+noremap <C-h> :History<CR>
+
+" coc
+let g:coc_global_extensions = ['coc-vimlsp', 'coc-clangd']
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
 
 color snazzy
 let g:SnazzyTransparent = 1
